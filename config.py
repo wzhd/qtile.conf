@@ -1,4 +1,7 @@
+from collections import namedtuple
+
 from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
 from libqtile import hook
@@ -58,17 +61,31 @@ keys = [
     Key([mod, "shift"], "q", lazy.shutdown()),
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+MyGroup = namedtuple('MyGroup', ['name', 'key', 'layout', 'matches'])
+mygroups = [
+    MyGroup('a', 'a', None, [Match(wm_class=['KeePass2'])]),
+    MyGroup('s', 's', None, [Match(wm_class=['Zathura'])]),
+    MyGroup('🌐', 'd', None, [Match(wm_class=['Firefox', 'google-chrome', 'Google-chrome', 'chromium'])]),
+    MyGroup('⏎', 'f', None, [Match(wm_class=['Emacs'])]),
+    MyGroup('⚒', 'u', None, [Match(wm_class=['Termite'])]),
+    MyGroup('📓', 'i', None, [Match(wm_class=['Zim', 'mpv'])]),
+    MyGroup('o', 'o', None, None),
+    MyGroup('p', 'p', None, None),
+]
 
-for i in groups:
+groups = []
+
+for i in mygroups:
+    groups.append(Group(i.name, layout=i.layout, matches=i.matches))
+
     # mod1 + letter of group = switch to group
     keys.append(
-        Key([mod], i.name, lazy.group[i.name].toscreen())
+        Key([mod], i.key, lazy.group[i.name].toscreen())
     )
 
     # mod1 + shift + letter of group = switch to & move focused window to group
     keys.append(
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name))
+        Key([mod, "shift"], i.key, lazy.window.togroup(i.name))
     )
 
 layouts = [
