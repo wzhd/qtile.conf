@@ -3,9 +3,12 @@ from libqtile.command import lazy
 from libqtile import layout, bar, widget
 from libqtile import hook
 
+from bindings import keys_app
+
 mod = "mod4"
 
 keys = [
+    *keys_app,
     # Switch between windows in current stack pane
     Key(
         [mod], "k",
@@ -46,14 +49,13 @@ keys = [
         [mod, "shift"], "Return",
         lazy.layout.toggle_split()
     ),
-    Key([mod], "Return", lazy.spawn("xterm")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "w", lazy.window.kill()),
+    Key([mod, 'shift'], "c", lazy.window.kill()),
 
     Key([mod, "control"], "r", lazy.restart()),
-    Key([mod, "control"], "q", lazy.shutdown()),
+    Key([mod, "shift"], "q", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd()),
 ]
 
