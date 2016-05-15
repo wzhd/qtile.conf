@@ -78,14 +78,14 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Arial',
+    font='Noto Serif',
     fontsize=32,
     padding=3,
 )
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.GroupBox(),
                 widget.Prompt(),
