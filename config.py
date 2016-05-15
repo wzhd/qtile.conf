@@ -56,7 +56,6 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "shift"], "q", lazy.shutdown()),
-    Key([mod], "r", lazy.spawncmd()),
 ]
 
 groups = [Group(i) for i in "asdfuiop"]
