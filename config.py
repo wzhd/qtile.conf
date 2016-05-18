@@ -116,12 +116,16 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(margin_x=1, margin_y=0, fontsize=25, disable_drag=True, inactive='909090', font='DejaVu Sans'),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.TaskList(highlight_method='block', max_title_width=500),
                 widget.Notify(),
-                widget.Systray(),
+                widget.Systray(icon_size=45),
                 widget.Volume(foreground = "70ff70"),
+                widget.MemoryGraph(foreground='908'),
+                widget.SwapGraph(foreground='C02020'),
+                widget.Sep(),
+                widget.NetGraph(interface='wlp1s0'),
                 widget.Battery(
                     energy_now_file='charge_now',
                     energy_full_file='charge_full',
@@ -129,9 +133,11 @@ screens = [
                     update_delay = 5,
                     foreground = "7070ff",
                 ),
+                widget.BatteryIcon(),
                 widget.TextBox("my config", name="default"),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.ThermalSensor(tag_sensor='Physical id 0'),
+                widget.Clock(format='%m-%d %a %I:%M %p'),
+                widget.CurrentLayout(),
             ],
             45,
         ),
