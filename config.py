@@ -73,14 +73,14 @@ keys = [
 
 MyGroup = namedtuple('MyGroup', ['name', 'key', 'layout', 'matches'])
 mygroups = [
-    MyGroup('a', 'a', None, [Match(wm_class=['KeePass2'])]),
-    MyGroup('s', 's', None, [Match(wm_class=['Zathura'])]),
+    MyGroup('🇦', 'a', None, [Match(wm_class=['KeePass2'])]),
+    MyGroup('🇧', 's', None, [Match(wm_class=['Zathura'])]),
     MyGroup('🌐', 'd', None, [Match(wm_class=['Firefox', 'google-chrome', 'Google-chrome', 'chromium'])]),
     MyGroup('⏎', 'f', None, [Match(wm_class=['Emacs'])]),
-    MyGroup('⚒', 'u', None, [Match(wm_class=['Termite'])]),
+    MyGroup('⚒', 'u', 'columns', [Match(wm_class=['Termite'])]),
     MyGroup('📓', 'i', None, [Match(wm_class=['Zim', 'mpv'])]),
-    MyGroup('o', 'o', None, None),
-    MyGroup('p', 'p', None, None),
+    MyGroup('🇴', 'o', None, None),
+    MyGroup('🇵', 'p', None, None),
 ]
 
 groups = []
