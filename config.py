@@ -42,12 +42,6 @@ keys = [
         lazy.layout.shuffle_up()
     ),
 
-    # Switch window focus to other pane(s) of stack
-    Key(
-        [mod], "space",
-        lazy.layout.next()
-    ),
-
     # Swap panes of split stack
     Key(
         [mod, "shift"], "space",
@@ -64,7 +58,8 @@ keys = [
     ),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod], "space", lazy.next_layout()),
+    Key([mod, 'shift'], "space", lazy.prev_layout()),
     Key([mod, 'shift'], "c", lazy.window.kill()),
 
     Key([mod, "control"], "r", lazy.restart()),
