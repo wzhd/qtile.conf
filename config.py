@@ -7,6 +7,7 @@ from libqtile import layout, bar, widget
 from libqtile import hook
 
 from bindings import keys_app
+import autostart
 
 mod = "mod4"
 
