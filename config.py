@@ -23,6 +23,15 @@ keys = [
         lazy.layout.up()
     ),
 
+    Key(
+        [mod], "h",
+        lazy.layout.left()
+    ),
+    Key(
+        [mod], "l",
+        lazy.layout.right()
+    ),
+
     # Move windows up or down in current stack
     Key(
         [mod, "control"], "k",
