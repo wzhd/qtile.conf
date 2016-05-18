@@ -98,7 +98,10 @@ for i in mygroups:
         Key([mod, "shift"], i.key, lazy.window.togroup(i.name))
     )
 
+
 layouts = [
+    layout.columns.Columns(fair=True, border_focus='#881111', border_normal='#220000', border_width=4),
+    layout.tile.Tile(),
     layout.Max(),
     layout.Stack(num_stacks=2)
 ]
