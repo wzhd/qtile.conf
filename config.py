@@ -96,9 +96,8 @@ for i in mygroups:
 
 layouts = [
     layout.columns.Columns(fair=True, border_focus='#881111', border_normal='#220000', border_width=4),
-    layout.tile.Tile(),
+    layout.verticaltile.VerticalTile(border_width=4),
     layout.Max(),
-    layout.Stack(num_stacks=2)
 ]
 
 widget_defaults = dict(
