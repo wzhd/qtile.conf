@@ -144,18 +144,16 @@ def dialogs(window):
         or window.window.get_wm_transient_for()):
         window.floating = True
 
+floating_names = ('Search Dialog', 'Module' , 'Goto' , 'IDLE Preferences')
 @hook.subscribe.client_new
 def idle_dialogues(window):
-    if((window.window.get_name() == 'Search Dialog') or
-       (window.window.get_name() == 'Module') or
-       (window.window.get_name() == 'Goto') or
-       (window.window.get_name() == 'IDLE Preferences')):
+    if window.window.get_name() in floating_names:
         window.floating = True
 
+floating_wmclasses = ('libreoffice-calc', 'LibreOffice 3.4', 'Onboard')
 @hook.subscribe.client_new
 def libreoffice_dialogues(window):
-    if((window.window.get_wm_class() == ('VCLSalFrame', 'libreoffice-calc')) or
-    (window.window.get_wm_class() == ('VCLSalFrame', 'LibreOffice 3.4'))):
+    if window.window.get_wm_class()[1] in floating_wmclasses:
         window.floating = True
 
 # Drag floating layouts.
