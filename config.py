@@ -130,7 +130,7 @@ screens = [
                 widget.BatteryIcon(),
                 widget.TextBox("my config", name="default"),
                 widget.ThermalSensor(tag_sensor='Physical id 0'),
-                widget.Clock(format='%m-%d %a %I:%M %p'),
+                widget.Clock(format='%b-%d %a %H:%M'),
                 widget.CurrentLayout(),
             ],
             45,
