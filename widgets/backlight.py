@@ -78,6 +78,9 @@ class Backlight(base.InLoopPollText):
                 'brightness': float(self._load_file(self.brightness_file)),
                 'max': float(self._load_file(self.max_brightness_file)),
             }
+            # In case _load_file returns False
+            if not info['max']:
+                return False
         except TypeError:
             return False
         return info
