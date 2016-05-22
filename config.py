@@ -138,6 +138,10 @@ screens = [
     ),
 ]
 
+@hook.subscribe.client_managed
+def show_window(window):
+    window.group.cmd_toscreen()
+
 @hook.subscribe.client_new
 def dialogs(window):
     if(window.window.get_wm_type() == 'dialog'
