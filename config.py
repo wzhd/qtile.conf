@@ -8,6 +8,7 @@ from libqtile import hook
 
 from bindings import keys_app
 import autostart
+from widgets.backlight import Backlight
 
 mod = "mod4"
 
@@ -115,6 +116,7 @@ screens = [
                 widget.TaskList(highlight_method='block', max_title_width=500),
                 widget.Notify(),
                 widget.Systray(icon_size=45),
+                Backlight(),
                 widget.Volume(foreground = "70ff70"),
                 widget.MemoryGraph(foreground='908'),
                 widget.SwapGraph(foreground='C02020'),
