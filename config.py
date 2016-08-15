@@ -102,9 +102,10 @@ for i in mygroups:
 
 
 layouts = [
+    layout.Max(),
     layout.columns.Columns(fair=True, border_focus='#881111', border_normal='#220000', border_width=4),
     layout.verticaltile.VerticalTile(border_width=4),
-    layout.Max(),
+    layout.Floating(),
 ]
 
 widget_defaults = dict(
