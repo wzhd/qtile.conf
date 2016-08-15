@@ -43,6 +43,9 @@ keys = [
         lazy.layout.shuffle_up()
     ),
 
+    Key([mod],          "comma",    lazy.layout.grow()),
+    Key([mod],          "period",   lazy.layout.shrink()),
+
     # Swap panes of split stack
     Key(
         [mod, "shift"], "space",
@@ -62,6 +65,9 @@ keys = [
     Key([mod], "space", lazy.next_layout()),
     Key([mod, 'shift'], "space", lazy.prev_layout()),
     Key([mod, 'shift'], "c", lazy.window.kill()),
+    Key([mod],          "m", lazy.window.toggle_fullscreen()),
+    Key([mod],          "8",    lazy.window.down_opacity()),
+    Key([mod],          "9",   lazy.window.up_opacity()),
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "shift"], "q", lazy.shutdown()),
