@@ -1,5 +1,8 @@
 from collections import namedtuple
 
+import xcffib
+import xcffib.xproto
+
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.config import Match
 from libqtile.command import lazy
@@ -9,6 +12,12 @@ from libqtile import hook
 from bindings import keys_app
 import autostart
 from widgets.backlight import Backlight
+
+_screen = xcffib.connect().get_setup().roots[0]
+scaling = _screen.width_in_pixels / _screen.width_in_millimeters / 4
+
+def scale(size):
+    return int(size*scaling)
 
 mod = "mod4"
 
@@ -110,19 +119,19 @@ layouts = [
 
 widget_defaults = dict(
     font='Noto Serif',
-    fontsize=32,
-    padding=3,
+    fontsize=scale(16),
+    padding=scale(1.5),
 )
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(margin_x=1, margin_y=0, fontsize=25, disable_drag=True, inactive='909090', font='DejaVu Sans'),
+                widget.GroupBox(margin_x=1, margin_y=0, fontsize=scale(12), disable_drag=True, inactive='909090', font='DejaVu Sans'),
                 widget.Prompt(),
-                widget.TaskList(highlight_method='block', max_title_width=500),
+                widget.TaskList(highlight_method='block', max_title_width=scale(200)),
                 widget.Notify(),
-                widget.Systray(icon_size=45),
+                widget.Systray(icon_size=scale(22)),
                 Backlight(),
                 widget.Volume(foreground = "70ff70"),
                 widget.MemoryGraph(foreground='908'),
@@ -142,7 +151,7 @@ screens = [
                 widget.Clock(format='%b-%d %a %H:%M'),
                 widget.CurrentLayout(),
             ],
-            45,
+            scale(22),
         ),
     ),
 ]
