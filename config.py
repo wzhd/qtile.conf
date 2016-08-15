@@ -163,7 +163,12 @@ def idle_dialogues(window):
     if window.window.get_name() in floating_names:
         window.floating = True
 
-floating_wmclasses = ('libreoffice-calc', 'LibreOffice 3.4', 'Onboard')
+floating_wmclasses = (
+    'libreoffice-calc',
+    'LibreOffice 3.4',
+    'Onboard',
+    'Thunar',
+)
 @hook.subscribe.client_new
 def libreoffice_dialogues(window):
     if window.window.get_wm_class()[1] in floating_wmclasses:
